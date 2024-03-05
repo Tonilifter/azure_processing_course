@@ -1,0 +1,125 @@
+DATAFACTORY
+
+
+1. Introducción a Azure Data Factory
+
+Conceptos básicos de Azure Data Factory (ADF)
+Usos y beneficios de ADF en el contexto de la modernización de datos
+Duración estimada: 30 minutos
+
+2. Arquitectura de Azure Data Factory
+
+Componentes principales de ADF: datasets, pipelines, actividades, etc.
+Escenarios de uso y casos de aplicación
+Duración estimada: 45 minutos
+
+3. Creación de Pipelines en Azure Data Factory
+
+Creación y configuración de pipelines
+Uso de actividades predefinidas y personalizadas
+Configuración de disparadores (triggers)
+Duración estimada: 60 minutos
+
+4. Integración de Datos en Azure Data Factory
+
+Conexión y Extracción de Datos desde Diferentes Fuentes: 
+	Se explicará cómo configurar conexiones a diferentes fuentes de datos, como bases de datos relacionales, almacenamientos en la nube 
+	(por ejemplo, Azure Blob Storage o Azure SQL Database), servicios de SaaS (Software as a Service) como Salesforce, entre otros. 
+	Se detallará cómo extraer datos de estas fuentes utilizando actividades como Copy Data y cómo configurar las conexiones apropiadas.
+Transformaciones de Datos: 
+	Se abordarán las diferentes transformaciones de datos disponibles en Azure Data Factory, incluyendo mapeos de columnas, filtrado de filas, 
+	agregaciones, unión de datos, y transformaciones más complejas mediante el uso de lenguajes de expresión como SQL, C# o Python.
+Carga de Datos en Destinos: 
+	Se explicará cómo configurar la carga de datos en diferentes destinos, como bases de datos, data warehouses, almacenamientos en la nube, servicios de análisis, entre otros. 
+	Se detallarán las opciones de configuración disponibles, como la partición de datos, la compresión, la configuración de esquemas, entre otros.
+
+5. Monitoreo y Gestión en Azure Data Factory
+
+Monitoreo de Ejecuciones de Pipelines: 
+	Se mostrará cómo monitorear el estado y el rendimiento de las ejecuciones de los pipelines en Azure Data Factory, utilizando el portal de Azure, 
+	métricas integradas, registros de actividad, y alertas para detectar y solucionar problemas.
+Gestión de Errores y Reintentos: 
+	Se explicará cómo gestionar errores durante la ejecución de pipelines, incluyendo la configuración de políticas de reintentos, la gestión de errores de validación de datos, 
+	y el seguimiento y resolución de errores utilizando registros de actividad y diagnósticos de Azure.
+Administración de Recursos y Costos: 
+	Se detallarán las mejores prácticas para la administración de recursos en Azure Data Factory, incluyendo la configuración de niveles de servicio, la optimización de la utilización de recursos, 
+	y la monitorización y optimización de costos mediante el uso eficiente de instancias de ejecución y recursos de almacenamiento.
+
+6. Seguridad y Cumplimiento en Azure Data Factory
+
+Seguridad de Datos y Acceso: 
+	Se abordarán las características de seguridad disponibles en Azure Data Factory, incluyendo la autenticación y autorización basadas en roles de Azure Active Directory, 
+	el cifrado de datos en reposo y en tránsito, y las opciones de seguridad avanzadas para la protección de datos sensibles.
+Cumplimiento Normativo y Regulaciones: 
+	Se explicará cómo cumplir con diferentes regulaciones y estándares de seguridad de datos, como GDPR, HIPAA, SOC, entre otros, mediante el uso de características de seguridad 
+	y cumplimiento en Azure Data Factory, así como la implementación de políticas y controles de seguridad.
+Mejores Prácticas de Seguridad: 
+	Se presentarán las mejores prácticas de seguridad recomendadas para el diseño, implementación y operación de pipelines en Azure Data Factory, 
+	incluyendo la configuración de políticas de seguridad, la gestión de accesos, la monitorización de eventos de seguridad, y la respuesta a incidentes de seguridad.
+
+7. Práctica: Caso de Uso y Ejercicios
+
+Presentación del caso de uso práctico
+Ejercicios prácticos para aplicar lo aprendido
+Asistencia y soporte a los participantes durante la práctica
+
+
+
+Api de conversión de monedas:
+
+https://rapidapi.com/dontgiveafish/api/hryvna-today/
+
+curl --request GET \
+	--url 'https://hryvna-today.p.rapidapi.com/v1/convert?to=980&sum=100&from=840&type=commercial' \
+	--header 'X-RapidAPI-Host: hryvna-today.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: a1243203e8msh33e0cf2dfbf6b37p114243jsn570d8f22843c'
+	
+	
+En python: 
+	import requests
+
+	url = "https://hryvna-today.p.rapidapi.com/v1/convert"
+
+	querystring = {"to":"980","sum":"100","from":"840","type":"commercial"}
+
+	headers = {
+		"X-RapidAPI-Key": "a1243203e8msh33e0cf2dfbf6b37p114243jsn570d8f22843c",
+		"X-RapidAPI-Host": "hryvna-today.p.rapidapi.com"
+	}
+
+	response = requests.get(url, headers=headers, params=querystring)
+
+	print(response.json())	
+	
+	
+**************************************************************************************************
+Casos de uso:
+
+Registro de Transacciones Financieras:
+Datos de Empleados y Horas Laborales:	
+Registro de Sensores de IoT:
+Datos de Usuarios y Actividades en un Sitio Web:
+Ventas:
+ID_Venta, Fecha_Venta, Hora_Venta, ID_Cliente, Producto, Cantidad, Monto_Venta, ID_moneda
+1001, 2024-02-01, 08:30:00, 1, Producto_A, 2, 100.00, 978
+1002, 2024-02-01, 09:45:00, 2, Producto_B, 1, 75.50, 978
+1003, 2024-02-01, 11:00:00, 3, Producto_C, 3, 150.20, 978
+1004, 2024-02-02, 10:15:00, 4, Producto_A, 1, 50.75, 978
+1005, 2024-02-02, 12:30:00, 5, Producto_B, 2, 200.00, 978
+
+
+
+
+***************************************************************************************************
+
+curl -X POST -H "Content-Type: application/json" -d '{"filename": "sales_data.parquet"}'  http://localhost:7071/api/function_sylver_sales
+
+
+export JAVA_HOME="/c/Program Files/Eclipse Adoptium/jdk-21.0.2.13-hotspot"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+export PATH="/c/maven/apache-maven-3.9.6/bin:$PATH"
+
+
+java -jar /c/azure_processing_course/eventhub-producer/demo/target/demo-1.0-SNAPSHOT.jar
+
